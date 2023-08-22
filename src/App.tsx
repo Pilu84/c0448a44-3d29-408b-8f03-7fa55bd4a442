@@ -1,25 +1,23 @@
+import { ThemeProvider } from '@mui/material';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BaseListContainer } from './components/baseList/BaseListContainer';
+import { HeaderNav } from './components/nav/headerNav';
+import styles from './styles/base/app.less';
+import { NTheme } from './styles/theme/NTheme';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={NTheme}>
+      <div>
+        <header className={styles.Appheader}>
+          <HeaderNav />
+        </header>
+        <div className={styles.appBody}>
+          <BaseListContainer />
+        </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
